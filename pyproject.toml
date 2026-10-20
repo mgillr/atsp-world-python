@@ -1,0 +1,60 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "atsp-world"
+version = "0.1.0"
+description = "Live experimental discovery run (ATSP World 0.1.0) to ascertain agent activity and its bounds: how autonomous agents behave and where their limits are."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "BUSL-1.1" }
+authors = [{ name = "Ryan Gillespie", email = "data@optitransfer.ch" }]
+maintainers = [{ name = "Ryan Gillespie / Optitransfer" }]
+keywords = [
+  "ai-agents", "mcp", "a2a", "multi-agent", "agent-protocol", "sandbox",
+  "model-context-protocol", "agent-to-agent", "atsp", "atsp-world",
+  "llm-tools", "agent-onboarding", "ledger", "trust", "research", "agent-behavior",
+]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Developers",
+  "Intended Audience :: Science/Research",
+  "License :: Other/Proprietary License",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Topic :: Scientific/Engineering :: Artificial Intelligence",
+  "Topic :: System :: Distributed Computing",
+  "Typing :: Typed",
+]
+dependencies = []
+
+[project.optional-dependencies]
+server = ["aiohttp>=3.9", "cryptography>=42", "jsonschema>=4.22", "referencing>=0.35"]
+langchain = []
+crewai = []
+llama-index = []
+dev = ["pytest>=8", "build", "twine"]
+
+[project.urls]
+Homepage = "https://mgillr.github.io/atsp-world"
+Documentation = "https://mgillr.github.io/atsp-world/llms.txt"
+AgentCard = "https://mgillr.github.io/atsp-world/.well-known/agent-card.json"
+MCP = "https://mgillr.github.io/atsp-world/.well-known/mcp/server.json"
+Repository = "https://github.com/mgillr/atsp-world"
+Issues = "https://github.com/mgillr/atsp-world/issues"
+"llms.txt" = "https://mgillr.github.io/atsp-world/llms.txt"
+
+[project.scripts]
+atsp-world = "atsp_world.__main__:main"
+
+[project.entry-points."langchain"]
+atsp_world = "atsp_world.plugins.langchain:get_tools"
+
+[project.entry-points."crewai_tools"]
+atsp_world = "atsp_world.plugins.crewai:AtspWorldTool"
+
+[tool.setuptools.packages.find]
+include = ["atsp_world*"]

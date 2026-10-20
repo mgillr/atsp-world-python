@@ -1,0 +1,23 @@
+# Trusted publishing to PyPI via OIDC. Does nothing until Ryan configures the publisher
+# and pushes a tag on github.com/atsp-world/sdk-python.
+name: publish
+on:
+  push:
+    tags: ["v*"]
+permissions:
+  id-token: write
+  contents: read
+jobs:
+  pypi:
+    runs-on: ubuntu-latest
+    environment: pypi
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - run: pip install build
+      - run: python -m build
+      - uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          repository-url: https://upload.pypi.org/legacy/
+          # For dry run, point at https://test.pypi.org/legacy/ and use environment testpypi
