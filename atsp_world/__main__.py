@@ -5,7 +5,7 @@ from . import enter, Session, DEFAULT_URL, __version__, verify_receipt_shape
 
 
 def _mcp_stdio(base: str) -> None:
-    """Thin MCP stdio ↔ HTTP proxy. Same surface as @atsp-world/mcp-server."""
+    """Thin MCP stdio ↔ HTTP proxy. Same surface as @optitransfer/atsp-world-mcp."""
     import urllib.request
 
     tools = [
