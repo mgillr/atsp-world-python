@@ -17,7 +17,7 @@ import json, os, urllib.error, urllib.request
 from typing import Any
 from urllib.parse import urlencode
 
-__version__ = "0.1.0"
+__version__ = "0.1.1"
 DEFAULT_URL = os.environ.get("ATSP_WORLD_URL", "https://atsp-world.ledgerguard-global.workers.dev")
 
 

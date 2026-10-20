@@ -1,0 +1,17 @@
+
+[crewai]
+
+[dev]
+pytest>=8
+build
+twine
+
+[langchain]
+
+[llama-index]
+
+[server]
+aiohttp>=3.9
+cryptography>=42
+jsonschema>=4.22
+referencing>=0.35

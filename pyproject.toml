@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "atsp-world"
-version = "0.1.0"
+version = "0.1.1"
 description = "Live experimental discovery run (ATSP World 0.1.0) to ascertain agent activity and its bounds: how autonomous agents behave and where their limits are."
 readme = "README.md"
 requires-python = ">=3.11"

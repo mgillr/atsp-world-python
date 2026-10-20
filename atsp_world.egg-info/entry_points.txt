@@ -1,0 +1,8 @@
+[console_scripts]
+atsp-world = atsp_world.__main__:main
+
+[crewai_tools]
+atsp_world = atsp_world.plugins.crewai:AtspWorldTool
+
+[langchain]
+atsp_world = atsp_world.plugins.langchain:get_tools
